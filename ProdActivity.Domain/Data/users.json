@@ -1,0 +1,47 @@
+[
+  {
+    "Id": 5941241,
+    "Password": "Srinivasa5941241",
+    "UserRole": "Admin"
+  },
+  {
+    "Id": 5941246,
+    "Password": "Harish5941246",
+    "UserRole": "Standard"
+  },
+  {
+    "Id": 5941311,
+    "Password": "Ragavendiran5941311",
+    "UserRole": "Standard"
+  },
+  {
+    "Id": 5941337,
+    "Password": "Dinesh5941337",
+    "UserRole": "Standard"
+  },
+  {
+    "Id": 7165,
+    "Password": "Madhuri7165",
+    "UserRole": "Standard"
+  },
+  {
+    "Id": 7113,
+    "Password": "Vinayaka7113",
+    "UserRole": "Standard"
+  },
+  {
+    "Id": 7156,
+    "Password": "Godwin7156",
+    "UserRole": "Standard"
+  },
+  {
+    "Id": 2406,
+    "Password": "Rajasekaran2406",
+    "UserRole": "Standard"
+  },
+  {
+    "Id": 6717,
+    "Password": "Malilnga6717",
+    "UserRole": "Standard"
+  }
+]
