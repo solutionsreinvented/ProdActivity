@@ -6,6 +6,7 @@ using System.Windows;
 using Newtonsoft.Json;
 
 using ProdActivity.Domain.Enums;
+using ProdActivity.Domain.Extensions;
 using ProdActivity.Domain.Interfaces;
 using ProdActivity.Domain.Models;
 using ProdActivity.Domain.Repositories;
@@ -20,6 +21,12 @@ namespace ProdActivity.UI
         public MainWindow()
         {
             InitializeComponent();
+
+            DateTime dateTime = new(2022, 05, 19, 9, 10, 0);
+
+            var holidays = GetHolidaysList();
+
+            MessageBox.Show($"Next business hour: {dateTime.NextBusinessHour(90, holidays)}");
 
             ///StoreResourcesData();
 
@@ -78,7 +85,25 @@ namespace ProdActivity.UI
             return engineeringResources;
         }
 
-
+        private HashSet<DateTime> GetHolidaysList()
+        {
+            return new HashSet<DateTime>()
+            {
+                new DateTime(2022, 01, 01),
+                new DateTime(2022, 01, 26),
+                new DateTime(2022, 03, 01),
+                new DateTime(2022, 04, 15),
+                new DateTime(2022, 05, 01),
+                new DateTime(2022, 08, 15),
+                new DateTime(2022, 08, 31),
+                new DateTime(2022, 10, 02),
+                new DateTime(2022, 10, 04),
+                new DateTime(2022, 10, 05),
+                new DateTime(2022, 10, 24),
+                new DateTime(2022, 10, 26),
+                new DateTime(2022, 11, 01)
+            };
+        }
 
 
     }

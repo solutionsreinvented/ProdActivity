@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="ReInvented.Shared">
+      <HintPath>..\..\..\Users\masanams\Desktop\ReInvented.Shared.dll</HintPath>
+    </Reference>
     <Reference Include="SRi.XamlUIThickenerApp.DataAccess">
       <HintPath>..\..\..\Users\masanams\Desktop\SRi.XamlUIThickenerApp.DataAccess.dll</HintPath>
     </Reference>

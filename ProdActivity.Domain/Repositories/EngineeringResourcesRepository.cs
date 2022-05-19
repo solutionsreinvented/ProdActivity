@@ -12,7 +12,7 @@ namespace ProdActivity.Domain.Repositories
 {
     public class EngineeringResourcesRepository
     {
-        private const string _fileName = @"engineeringresources.json";
+        private const string _fileName = @"EngineeringResources.json";
 
         private readonly JsonDataSerializer<List<EngineeringResource>> _jsonDataSerializer = new();
 
