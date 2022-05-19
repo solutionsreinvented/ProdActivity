@@ -96,31 +96,29 @@ namespace ProdActivity.Domain.Extensions
             TimeSpan timeSpanFromGivenDate = fromDate.ExtractTimeSpan();
             TimeSpan timeSpanFromWorkStartHour = TimeSpan.FromHours(workStartHour);
 
-            if (timeSpanFromGivenDate > timeSpanFromWorkStartHour)
-            {
-                TimeSpan timeSpanRemainingOnTheGivenDate = fromDate.RemainingTimeSpanInTheWorkDay(workHoursPerDay, workStartHour);
-                totalWorkHours -= timeSpanRemainingOnTheGivenDate.TotalHours;
-            }
-            else
-            {
-                fromDate = fromDate.ResetTimeSpanToZero();
-            }
-
             int wholeWorkDays = (int)MathExtensions.FloorTo((decimal)(totalWorkHours / workHoursPerDay), 1);
-
-            double hoursFromFractionalDay = (totalWorkHours / workHoursPerDay) - wholeWorkDays;
 
             DateTime nextBusinessDay = NextBusinessDay(fromDate, holidays, wholeWorkDays);
 
+            double fractionalHoursLeft = ((totalWorkHours / workHoursPerDay) - wholeWorkDays) * workHoursPerDay;
+
             if (timeSpanFromGivenDate > timeSpanFromWorkStartHour)
             {
-                nextBusinessDay = nextBusinessDay.AddHours((hoursFromFractionalDay > 0 ? (int)hoursFromFractionalDay : workHoursPerDay));
+                TimeSpan timeSpanRemainingOnTheGivenDate = fromDate.RemainingTimeSpanInTheWorkDay(workHoursPerDay, workStartHour);
+
+                if (timeSpanRemainingOnTheGivenDate.TotalHours >= fractionalHoursLeft)
+                {
+                    nextBusinessDay = nextBusinessDay.AddHours(fractionalHoursLeft);
+                }
+                else
+                {
+                    nextBusinessDay = nextBusinessDay.NextBusinessDay().AddHours(fractionalHoursLeft-timeSpanRemainingOnTheGivenDate.TotalHours);
+                }
             }
             else
             {
-                nextBusinessDay = nextBusinessDay.AddHours(workStartHour + (hoursFromFractionalDay > 0 ? (int)hoursFromFractionalDay : workHoursPerDay));
+                nextBusinessDay = nextBusinessDay.ResetTimeSpanToZero().AddHours(workStartHour + (fractionalHoursLeft > 0 ? fractionalHoursLeft : workHoursPerDay));
             }
-         
 
             return nextBusinessDay;
         }

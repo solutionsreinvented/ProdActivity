@@ -26,7 +26,7 @@ namespace ProdActivity.UI
 
             var holidays = GetHolidaysList();
 
-            MessageBox.Show($"Next business hour: {dateTime.NextBusinessHour(90, holidays)}");
+            MessageBox.Show($"Next business hour: {dateTime.NextBusinessHour(9, holidays)}");
 
             ///StoreResourcesData();
 
