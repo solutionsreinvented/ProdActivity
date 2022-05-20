@@ -12,10 +12,10 @@ namespace ProdActivity.UI.ViewModels
         public LoginViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
-            ChangePasswordCommand = new RelayCommand(OnResetPassword, true);
+            ChangePasswordCommand = new RelayCommand(OnChangePassword, true);
         }
 
-        private void OnResetPassword()
+        private void OnChangePassword()
         {
             _navigationStore.CurrentViewModel = new ChangePasswordViewModel(_navigationStore);
         }

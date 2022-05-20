@@ -11,12 +11,13 @@ namespace ProdActivity.UI.ViewModels
         public MainViewModel()
         {
             _navigationStore = new NavigationStore();
+            _navigationStore.CurrentViewModel = new LoginViewModel(_navigationStore);
             _navigationStore.PropertyChanged += OnCurrentViewModelChanged;
         }
 
         private void OnCurrentViewModelChanged(object sender, PropertyChangedEventArgs e)
         {
-            RaisePropertyChanged(nameof(CurrentViewModel));
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
 
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;

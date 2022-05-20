@@ -12,7 +12,7 @@ namespace ProdActivity.UI.Stores
 
         public NavigationStore()
         {
-            CurrentViewModel = new LoginViewModel(this);
+            ///CurrentViewModel = new ChangePasswordViewModel(this);
         }
 
         public ViewModelBase CurrentViewModel
