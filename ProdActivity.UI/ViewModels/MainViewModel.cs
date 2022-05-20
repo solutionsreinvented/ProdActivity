@@ -1,12 +1,24 @@
-﻿namespace ProdActivity.UI.ViewModels
+﻿using System.ComponentModel;
+
+using ProdActivity.UI.Stores;
+
+namespace ProdActivity.UI.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
+        private readonly NavigationStore _navigationStore;
+
         public MainViewModel()
         {
-
+            _navigationStore = new NavigationStore();
+            _navigationStore.PropertyChanged += OnCurrentViewModelChanged;
         }
 
+        private void OnCurrentViewModelChanged(object sender, PropertyChangedEventArgs e)
+        {
+            RaisePropertyChanged(nameof(CurrentViewModel));
+        }
 
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
     }
 }

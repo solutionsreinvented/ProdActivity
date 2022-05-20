@@ -7,7 +7,7 @@ namespace ProdActivity.Domain.Stores
 {
     public class PropertyStore : NotifyPropertyChanged
     {
-        readonly Dictionary<string, object> _propertiesDictionary = new Dictionary<string, object>();
+        readonly Dictionary<string, object> _propertiesDictionary = new();
 
         protected T Get<T>(T defaultValueOfSpecifiedType = default, [CallerMemberName] string propertyName = "")
         {

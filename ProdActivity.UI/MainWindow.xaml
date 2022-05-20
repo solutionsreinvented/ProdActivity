@@ -5,10 +5,55 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ProdActivity.UI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:ProdActivity.UI.Views"
+    xmlns:vm="clr-namespace:ProdActivity.UI.ViewModels"
     Title="MainWindow"
     Width="1200"
     Height="800"
+    AllowsTransparency="True"
+    Background="Transparent"
+    DataContext="{DynamicResource MainViewModel}"
+    ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
     mc:Ignorable="d">
-    <Grid />
+    <Window.Resources>
+        <vm:MainViewModel x:Key="MainViewModel" />
+    </Window.Resources>
+
+    <Border
+        Background="{StaticResource MainBackgroundBrush}"
+        BorderBrush="{StaticResource BackgroundBrush}"
+        BorderThickness="0.7"
+        CornerRadius="5">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Rectangle
+                Grid.Row="0"
+                Height="28"
+                Fill="{StaticResource BackgroundBrush}" />
+
+            <TextBlock
+                Grid.Row="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontWeight="Medium"
+                Foreground="{StaticResource ForegroundBrush}"
+                Text="Activity Scheduler" />
+
+            <ContentControl
+                Grid.Row="1"
+                VerticalAlignment="Center"
+                Content="{Binding CurrentViewModel}" />
+
+        </Grid>
+
+    </Border>
+
 </Window>
