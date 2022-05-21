@@ -7,10 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     MinWidth="350"
     MinHeight="150"
-    MaxWidth="350"
+    MaxWidth="400"
     MaxHeight="180"
     d:DesignHeight="150"
-    d:DesignWidth="350"
+    d:DesignWidth="400"
     mc:Ignorable="d">
     <Border Background="{StaticResource BackgroundBrush}" CornerRadius="5">
 
@@ -77,7 +77,7 @@
             <TextBox
                 Grid.Row="0"
                 Grid.Column="1"
-                Text="{Binding Username}" />
+                Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
 
 
             <TextBlock
@@ -89,7 +89,7 @@
             <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
-                Text="{Binding Password}" />
+                Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
 
             <UniformGrid
                 Grid.Row="2"
@@ -101,13 +101,16 @@
                     Grid.Column="0"
                     Margin="5,3"
                     HorizontalAlignment="Stretch"
-                    Content="Log In" />
+                    Command="{Binding LogInCommand}"
+                    Content="Log In"
+                    IsEnabled="{Binding IsValidUser}" />
                 <Button
                     Grid.Column="1"
                     Margin="5,3"
                     HorizontalAlignment="Stretch"
                     Command="{Binding ChangePasswordCommand}"
-                    Content="Change Password" />
+                    Content="Change Password"
+                    IsEnabled="{Binding IsValidUser}" />
             </UniformGrid>
 
 

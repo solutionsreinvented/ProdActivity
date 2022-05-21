@@ -24,6 +24,11 @@ namespace ProdActivity.UI
 
         }
 
+        private void OnMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
         /*        private void RetrieveResourcesData()
                 {
 

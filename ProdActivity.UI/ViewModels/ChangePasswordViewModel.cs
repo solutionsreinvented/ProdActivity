@@ -7,11 +7,8 @@ namespace ProdActivity.UI.ViewModels
 {
     public class ChangePasswordViewModel : ViewModelBase
     {
-        private readonly NavigationStore _navigationStore;
-
-        public ChangePasswordViewModel(NavigationStore navigationStore)
+        public ChangePasswordViewModel(NavigationStore navigationStore) : base(navigationStore)
         {
-            _navigationStore = navigationStore;
             SubmitCommand = new RelayCommand(OnPasswordChange, true);
         }
 
@@ -32,7 +29,17 @@ namespace ProdActivity.UI.ViewModels
             }
         }
 
-        public string Password
+        public string CurrentPassword
+        {
+            get => Get<string>();
+            set
+            {
+                Set(value);
+                RaisePropertyChanged(nameof(CanChangePassword));
+            }
+        }
+
+        public string NewPassword
         {
             get => Get<string>();
             set
@@ -56,7 +63,7 @@ namespace ProdActivity.UI.ViewModels
 
         private bool ValidUsername() => !string.IsNullOrEmpty(Username);
 
-        private bool PasswordsMatch() => !string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(ConfirmPassword) && Password == ConfirmPassword;
+        private bool PasswordsMatch() => !string.IsNullOrEmpty(NewPassword) && !string.IsNullOrEmpty(ConfirmPassword) && NewPassword == ConfirmPassword;
 
     }
 }

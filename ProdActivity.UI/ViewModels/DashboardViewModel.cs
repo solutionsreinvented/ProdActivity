@@ -1,8 +1,10 @@
-﻿namespace ProdActivity.UI.ViewModels
+﻿using ProdActivity.UI.Stores;
+
+namespace ProdActivity.UI.ViewModels
 {
     public class DashboardViewModel : ViewModelBase
     {
-        public DashboardViewModel()
+        public DashboardViewModel(NavigationStore navigationStore) : base(navigationStore)
         {
 
         }

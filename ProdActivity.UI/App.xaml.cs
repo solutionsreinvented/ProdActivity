@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+
+using ProdActivity.UI.Stores;
+using ProdActivity.UI.ViewModels;
 
 namespace ProdActivity.UI
 {
@@ -13,5 +10,21 @@ namespace ProdActivity.UI
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            NavigationStore navigationStore = new();
+
+            navigationStore.CurrentViewModel = new LoginViewModel(navigationStore);
+
+            MainWindow mainWindow = new()
+            {
+                DataContext = new MainViewModel(navigationStore)
+            };
+
+            mainWindow.Show();
+
+        }
     }
 }

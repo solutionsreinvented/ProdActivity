@@ -6,9 +6,11 @@ namespace ProdActivity.UI.ViewModels
 {
     public abstract class ViewModelBase : PropertyStore
     {
-        public ViewModelBase()
-        {
+        private protected readonly NavigationStore _navigationStore;
 
+        public ViewModelBase(NavigationStore navigationStore)
+        {
+            _navigationStore = navigationStore;
         }
     }
 }

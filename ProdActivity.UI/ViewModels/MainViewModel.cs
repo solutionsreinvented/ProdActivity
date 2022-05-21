@@ -6,12 +6,8 @@ namespace ProdActivity.UI.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private readonly NavigationStore _navigationStore;
-
-        public MainViewModel()
+        public MainViewModel(NavigationStore navigationStore) : base(navigationStore)
         {
-            _navigationStore = new NavigationStore();
-            _navigationStore.CurrentViewModel = new LoginViewModel(_navigationStore);
             _navigationStore.PropertyChanged += OnCurrentViewModelChanged;
         }
 

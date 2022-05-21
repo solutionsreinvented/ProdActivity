@@ -12,14 +12,10 @@
     Height="800"
     AllowsTransparency="True"
     Background="Transparent"
-    DataContext="{DynamicResource MainViewModel}"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    mc:Ignorable="d">
-    <Window.Resources>
-        <vm:MainViewModel x:Key="MainViewModel" />
-    </Window.Resources>
+    mc:Ignorable="d" MouseDown="OnMouseDown">
 
     <Border
         Background="{StaticResource MainBackgroundBrush}"
