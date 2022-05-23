@@ -21,7 +21,7 @@ namespace ProdActivity.UI.ViewModels
             {
                 _navigationStore.CurrentViewModel = new DashboardViewModel(_navigationStore)
                 {
-
+                    
                 };
             }
         }

@@ -16,14 +16,16 @@ namespace ProdActivity.UI
 
             NavigationStore navigationStore = new();
 
-            navigationStore.CurrentViewModel = new LoginViewModel(navigationStore);
+            ///            navigationStore.CurrentViewModel = new LoginViewModel(navigationStore);
 
-            MainWindow mainWindow = new()
+            navigationStore.CurrentViewModel = new CreateActivityViewModel(navigationStore);
+
+            MainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel(navigationStore)
             };
 
-            mainWindow.Show();
+            MainWindow.Show();
 
         }
     }

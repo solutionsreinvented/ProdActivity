@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 using ProdActivity.Domain.Base;
+using ProdActivity.Domain.Enums;
 using ProdActivity.Domain.Interfaces;
 using ProdActivity.Domain.Mappers;
 using ProdActivity.Domain.Services;
@@ -25,7 +28,19 @@ namespace ProdActivity.Domain.Repositories
         {
             string fileFullPath = Path.Combine(FileServiceProvider.GetDataDirectory(), _fileName);
 
-            return ClassToInterfaceMapper<EngineeringResource, IEngineeringResource>.Map(_jsonDataSerializer.Deserialiaze(fileFullPath));
+            List<EngineeringResource> resources = _jsonDataSerializer.Deserialiaze(fileFullPath);
+
+            resources.First().Activities = new List<IEngineeringActivity>()
+            {
+                new EngineeringActivity()
+                {
+                    ActivityType = EngineeringActivityType.Drafting,
+                    Description = "New Activity",
+                    InitiatedOn = DateTime.Now
+                }
+            };
+
+            return ClassToInterfaceMapper<EngineeringResource, IEngineeringResource>.Map(resources);
         }
 
     }

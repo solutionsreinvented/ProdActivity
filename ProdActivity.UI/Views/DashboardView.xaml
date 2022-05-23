@@ -63,6 +63,27 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
+            <TextBlock
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                FontSize="13"
+                FontWeight="DemiBold"
+                Text="{Binding Title}" />
+
+            <cc:PasswordBoxExtended
+                Grid.Row="1"
+                Grid.Column="0"
+                Width="200"
+                Height="28"
+                VerticalContentAlignment="Center"
+                Password="{Binding UserPassword, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Width="200"
+                Height="28"
+                Text="{Binding TestTextBoxValue, UpdateSourceTrigger=PropertyChanged}" />
 
         </Grid>
 

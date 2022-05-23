@@ -12,10 +12,11 @@
     Height="800"
     AllowsTransparency="True"
     Background="Transparent"
+    MouseDown="OnMouseDown"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    mc:Ignorable="d" MouseDown="OnMouseDown">
+    mc:Ignorable="d">
 
     <Border
         Background="{StaticResource MainBackgroundBrush}"
