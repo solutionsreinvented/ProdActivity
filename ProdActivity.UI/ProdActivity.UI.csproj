@@ -18,6 +18,9 @@
     <Reference Include="ReInvented.Shared">
       <HintPath>..\ReInvented.Shared.dll</HintPath>
     </Reference>
+    <Reference Include="SRi.CustomControlsLibrary">
+      <HintPath>..\SRi.CustomControlsLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="SRi.XamlUIThickenerApp.DataAccess">
       <HintPath>..\SRi.XamlUIThickenerApp.DataAccess.dll</HintPath>
     </Reference>

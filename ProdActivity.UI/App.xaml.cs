@@ -20,7 +20,9 @@ namespace ProdActivity.UI
 
             ///            navigationStore.CurrentViewModel = new LoginViewModel(navigationStore);
 
-            navigationStore.CurrentViewModel = new CreateActivityViewModel(navigationStore);
+            ///navigationStore.CurrentViewModel = new CreateActivityViewModel(navigationStore);
+
+            navigationStore.CurrentViewModel = new DashboardViewModel(navigationStore);
 
             MainWindow = new MainWindow()
             {

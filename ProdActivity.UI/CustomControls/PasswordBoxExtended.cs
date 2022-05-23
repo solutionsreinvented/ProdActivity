@@ -17,7 +17,14 @@ namespace ProdActivity.UI.CustomControls
         {
             _passwordBox = Template.FindName("PART_PasswordBox", this) as PasswordBox;
 
+            _passwordBox.PasswordChanged += OnPasswordBoxPasswordChanged;
+
             base.OnApplyTemplate();
+        }
+
+        private void OnPasswordBoxPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            Password = _passwordBox.Password;
         }
 
         public string Password
@@ -33,7 +40,7 @@ namespace ProdActivity.UI.CustomControls
 
         private static void OnPasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            _passwordBox.Password = d.GetValue(PasswordProperty) as string;
+            ///_passwordBox.Password = d.GetValue(PasswordProperty) as string;
         }
     }
 }
