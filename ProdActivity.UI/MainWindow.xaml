@@ -44,6 +44,38 @@
                 Foreground="{StaticResource ForegroundBrush}"
                 Text="Activity Scheduler" />
 
+            <StackPanel
+                Grid.Row="0"
+                Margin="10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+
+                <Button
+                    Padding="5,0"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding MinimizeCommand}"
+                    Content="-"
+                    FontSize="16" />
+
+                <Button
+                    Padding="5,0"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding MaximizeRestoreCommand}"
+                    Content="[ ]"
+                    FontSize="12" />
+
+                <Button
+                    Padding="5,0"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding CloseCommand}"
+                    Content="x"
+                    FontSize="14" />
+            </StackPanel>
+
             <ContentControl
                 Grid.Row="1"
                 VerticalAlignment="Center"

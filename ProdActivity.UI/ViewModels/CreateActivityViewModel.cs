@@ -5,6 +5,7 @@ using System.Windows.Input;
 
 using ProdActivity.Domain.Enums;
 using ProdActivity.Domain.Interfaces;
+using ProdActivity.Domain.Models;
 using ProdActivity.Domain.Repositories;
 using ProdActivity.UI.Stores;
 
@@ -32,6 +33,18 @@ namespace ProdActivity.UI.ViewModels
 
         public IEnumerable<IEngineeringActivity> Activities => SelectedResource?.Activities;
 
+        public ProjectType SelectedProjectType
+        {
+            get => Get<ProjectType>();
+            set => Set(value);
+        }
+
+        public EngineeringActivityType SelectedActivityType
+        {
+            get => Get<EngineeringActivityType>();
+            set => Set(value);
+        }
+
 
         public IEngineeringResource SelectedResource
         {
@@ -43,11 +56,13 @@ namespace ProdActivity.UI.ViewModels
             }
         }
 
+        public List<Project> Projects { get; set; }
+
         public IEngineeringActivity SelectedActivity { get => Get<IEngineeringActivity>(); set => Set(value); }
 
-        public DateTime StartDate { get => Get<DateTime>(); set => Set(value); }
+        public DateTime StartDate { get => Get(DateTime.Now); set => Set(value); }
 
-        public DateTime EndDate { get => Get<DateTime>(); set => Set(value); }
+        public DateTime EndDate { get => Get(DateTime.Now); set => Set(value); }
 
         public ICommand CreateActivityCommand { get; set; }
 

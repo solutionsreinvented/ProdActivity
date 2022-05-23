@@ -26,7 +26,7 @@ namespace ProdActivity.Domain.Base
 
         public string Description { get => Get<string>(); set => Set(value); }
 
-        public string ProjectCode { get => Get<string>(); set => Set(value); }
+        public Project Project { get => Get<Project>(); set => Set(value); }
 
         public EngineeringActivityType ActivityType { get => Get<EngineeringActivityType>(); set => Set(value); }
 

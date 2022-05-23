@@ -15,7 +15,7 @@ namespace ProdActivity.Domain.Interfaces
 
         string Description { get; set; }
 
-        string ProjectCode { get; set; }
+        Project Project { get; set; }
 
         EngineeringActivityType ActivityType { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using ProdActivity.Domain.Base;
+using ProdActivity.Domain.Enums;
 using ProdActivity.Domain.Interfaces;
 
 namespace ProdActivity.Domain.Models
@@ -7,7 +8,7 @@ namespace ProdActivity.Domain.Models
     {
         public DesignActivity(int activityId) : base(activityId)
         {
-            ActivityType = Enums.EngineeringActivityType.Design;
+            ActivityType = EngineeringActivityType.Design;
         }
 
     }
