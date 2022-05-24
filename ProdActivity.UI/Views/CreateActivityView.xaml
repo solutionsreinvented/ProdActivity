@@ -152,7 +152,7 @@
                         Height="24"
                         Margin="0,10"
                         VerticalContentAlignment="Center"
-                        ItemsSource="{Binding Source={be:EnumBindingSource {x:Type enums:ProjectType}}}"
+                        ItemsSource="{be:EnumBindingSource enums:ProjectType}"
                         SelectedItem="{Binding SelectedProjectType}" />
                 </StackPanel>
 
@@ -164,8 +164,8 @@
                         Height="24"
                         Margin="0,10"
                         VerticalContentAlignment="Center"
-                        ItemsSource="{Binding Source={be:EnumBindingSource {x:Type enums:EngineeringActivityType}}}"
-                        SelectedItem="{Binding SelectedAcivityType}" />
+                        ItemsSource="{be:EnumBindingSource enums:EngineeringActivityType}"
+                        SelectedItem="{Binding SelectedActivityType}" />
                 </StackPanel>
 
                 <!--<StackPanel Grid.Row="1" Grid.Column="2">
